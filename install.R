@@ -10,6 +10,7 @@ install.packages("rcolorbrewer")
 install.packages("htmlwidgets")
 install.packages("tigris")
 install.packages("zip")
+install.packages("Rglpk")
 # This R package is not found in anaconda; this is why we are using an install.R
 # file instead of environment.yml -- see https://github.com/binder-examples/r-conda 
 # for more information
