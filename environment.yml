@@ -1,0 +1,16 @@
+name: eds-notebook-targets-env
+channels:
+  - conda-forge
+dependencies:
+  - r-base=4.4.3
+  - r-tidyverse
+  - r-dataretrieval
+  - r-targets
+  - r-httr2
+  - r-sf
+  - r-xml2
+  - r-leaflet
+  - r-rcolorbrewer
+  - r-htmlwidgets
+  - r-tigris
+  - r-zip
