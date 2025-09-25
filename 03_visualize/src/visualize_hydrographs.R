@@ -2,12 +2,12 @@
 plot_hydrographs <- function(nwis_nws_data,out_file){
   
   # Create the base plot with 'Date' on the x-axis
-  m <- ggplot(nwis_nws_data, aes(x = Date)) + # Assign the plot to a variable 'plot'
-    # Plot 'X_00065_00003' (gage height) as a blue line
-    geom_line(aes(y = X_00065_00003, color = "Gage height")) +
+  m <- ggplot(nwis_nws_data, aes(x = time)) + # Assign the plot to a variable 'plot'
+    # Plot gage height as a blue line
+    geom_line(aes(y = value, color = "Gage height")) +
     # Plot 'flood_stage' as a red line on the same plot
     geom_line(aes(y = flood_stage, color = "National Weather Service Floodstage")) +
-    facet_wrap(~ paste0('USGS ', site_no, " - ", station_nm), ncol = 1, scales = "free") +
+    facet_wrap(~ paste0(monitoring_location_id, ", ", monitoring_location_name), ncol = 1, scales = "free") +
     # Manually define colors and names for the legend
     scale_color_manual(
       name = "Legend",

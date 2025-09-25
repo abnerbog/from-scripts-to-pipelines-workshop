@@ -9,11 +9,10 @@ create_map <- function(harvey_data, site_info, out_file) {
   # create an sf object for hurricane track and gage locations
   harvey_sf <- st_as_sf(harvey_data, coords = c("LONG", "LAT"), crs = 4326)
   gage_sf <- site_info %>% mutate(
-    popup=paste0("<b>USGS Site Number: </b>", site_no,"<br>",
-                 "<b>Station Name: </b> ", station_nm
-    )) %>% 
-    st_as_sf(coords = c("dec_long_va", "dec_lat_va"), crs = 4326)
-  
+    popup=paste0("<b>Site ID: </b>", monitoring_location_id,"<br>",
+                 "<b>Station Name: </b> ", monitoring_location_name
+    ))
+
   # load state boundaries with tigris package
   # tried to suppress messages and progress bar
   old_tigris_progress_option <- getOption("tigris_progress") # Save current option
