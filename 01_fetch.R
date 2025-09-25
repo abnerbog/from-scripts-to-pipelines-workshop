@@ -45,7 +45,7 @@ p1 <- list(
     
   tar_target(
     p1_site_info,
-    download_nwis_site_info(p1_site_data)
+    download_nwis_site_info(harvey_sites)
   ),
   
   tar_target(
