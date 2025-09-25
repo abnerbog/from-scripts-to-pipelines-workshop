@@ -1,8 +1,7 @@
-download_nwis_site_info <- function(site_data){
+download_nwis_site_info <- function(site_num){
   
-  # readNWISsite is from the dataRetrieval package
-  site_no <- unique(site_data$site_no)
-  site_info <- readNWISsite(site_no)
+  # use read_waterdata_monitoring_location function from dataRetrieval
+  site_info <- read_waterdata_monitoring_location(site_num)
 
   return(site_info)
 }
