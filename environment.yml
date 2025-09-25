@@ -4,7 +4,7 @@ channels:
 dependencies:
   - r-base=4.4.3
   - r-tidyverse
-  - r-dataretrieval
+  - r-dataretrieval>=2.7.21
   - r-targets
   - r-httr2
   - r-sf
@@ -14,3 +14,5 @@ dependencies:
   - r-htmlwidgets
   - r-tigris
   - r-zip
+  - r-svglite
+  - r-curl>=7.0.0
