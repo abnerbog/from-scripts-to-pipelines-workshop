@@ -1,4 +1,11 @@
-
+#' @title Plot Hydrographs with NWS Flood Stage
+#' @description This function creates a set of hydrographs (time series plots) of USGS gage height data, faceted by site, and overlays the corresponding National Weather Service (NWS) minor flood stage as a horizontal line. It saves the resulting plot as an SVG file.
+#'
+#' @param nwis_nws_data A combined tibble (`data.frame`) containing the NWIS stage data, NWS flood stage, site ID, and site name. This is typically the output from the `p2_stage_flooding_data` target.
+#' @param out_file A character string for the path and filename where the SVG plot will be saved.
+#'
+#' @return A character string representing the file path to the saved SVG hydrograph plot.
+#'
 plot_hydrographs <- function(nwis_nws_data,out_file){
   
   # Create the base plot with 'Date' on the x-axis

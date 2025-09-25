@@ -1,3 +1,12 @@
+#' @title Create Interactive Leaflet Map of Hurricane Track and USGS Sites
+#' @description This function generates a static-view Leaflet map showing the track of Hurricane Harvey (color-coded by time) and the locations of the selected USGS gage sites with popups. It saves the resulting map as a self-contained HTML file.
+#'
+#' @param harvey_data An `sf` object (simple features data frame) containing the processed Hurricane Harvey track points with date/time information.
+#' @param site_info An `sf` object containing the location and names of the USGS gage sites.
+#' @param out_file A character string for the path and filename where the HTML map will be saved.
+#'
+#' @return A character string representing the file path to the saved HTML map.
+#'
 create_map <- function(harvey_data, site_info, out_file) {
   
   # color palette for hurricane track based on date
@@ -106,6 +115,16 @@ create_map <- function(harvey_data, site_info, out_file) {
   return(out_file)
 }
 
+#' @title Add USGS Gage Site Legend to Leaflet Map
+#' @description This is a helper function to create and add a custom HTML legend for the USGS gage sites to a Leaflet map object.
+#'
+#' @param map A Leaflet map object to which the legend will be added.
+#' @param color A character string representing the color of the circle marker in the legend (e.g., "orange").
+#' @param label A character string for the text label associated with the legend symbol (e.g., "USGS Gage Sites").
+#' @param position A character string for the position of the legend on the map. Defaults to "bottomright".
+#'
+#' @return A Leaflet map object with the custom gage site legend added.
+#'
 add_gage_site_legend <- function(map, color, label, position = "bottomright") {
   # create an HTML snippet for the circle symbol
   circle_html <- paste0(
