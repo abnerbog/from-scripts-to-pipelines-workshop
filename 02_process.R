@@ -30,7 +30,11 @@ p2 <- list(
   tar_target(
     p2_stage_flooding_data,
     p1_site_data %>% 
+      mutate('site_no'=sub("USGS-", "", monitoring_location_id)) %>%
       left_join(p1_nws_flooding_info,by='site_no') %>%
-      left_join(p1_site_info %>% select(c('site_no','station_nm')),by='site_no')
+      st_drop_geometry() %>%
+      left_join(p1_site_info %>% 
+                  st_drop_geometry() %>%
+                  select(c('monitoring_location_id','monitoring_location_name')),by='monitoring_location_id')
   )
 )

@@ -19,10 +19,9 @@
 #' 
 download_nws_data <- function(nws_conversion, sites){
 
-  sites <- tibble("site_no"=sites)
-  sites <- left_join(sites, 
-                     select(nws_conversion, NWS, USGS), 
-                     by = c("site_no"="USGS"))
+  sites <- tibble("site_no"=sub("USGS-", "", sites)) %>%
+    left_join(select(nws_conversion, NWS, USGS), 
+              by = c("site_no"="USGS"))
   
   # Setup an empty table to build
   flood_stage_xwalk <- tibble()
